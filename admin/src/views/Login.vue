@@ -25,9 +25,14 @@ import { Component, Vue } from "vue-property-decorator";
   name: "Login"
 })
 export default class extends Vue {
-  model: Object = {};
+  model = {};
 
-  onSubmit() {}
+  async onSubmit() {
+    this.$http.post(this.model).then(res=>{
+      console.log(res)
+    })
+    console.log(this.model)
+  }
 }
 </script>
 <style lang="scss" scoped>

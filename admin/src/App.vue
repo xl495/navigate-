@@ -3,6 +3,11 @@
     <router-view/>
   </div>
 </template>
+<script>
+export default {
+  name: 'Main',
+};
+</script>
 <style>
 * {
   box-sizing: border-box;

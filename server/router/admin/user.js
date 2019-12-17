@@ -37,7 +37,7 @@ module.exports = app => {
         })
     })
 
-    app.use('/admin/user', router);
+    app.use('/admin/api/user', router);
     app.use(async(err, req, res, next) => {
         // console.log(err)
         res.status(err.statusCode || 500).send({
