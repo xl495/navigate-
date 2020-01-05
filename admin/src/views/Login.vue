@@ -22,13 +22,13 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({
-  name: "Login"
+  name: "Login",
 })
 export default class extends Vue {
   model = {};
 
   async onSubmit() {
-    this.$http.post(this.model).then(res=>{
+    this.$http.post({...this.model}).then(res=>{
       console.log(res)
     })
     console.log(this.model)
