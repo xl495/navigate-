@@ -2,9 +2,15 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
+app.set('secret', 'ahsg#sj$s%')
+
+app.use(require('cors')())
+
 app.get('/', async(req, res) => {
     res.send('Hello');
 })
+
+app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({
     extended: true

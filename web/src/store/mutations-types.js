@@ -1,0 +1,1 @@
+export const SET_IS_SETING = 'SET_IS_SETING'
