@@ -7,12 +7,18 @@
     <div :class="is_setting ? 'settings open' : 'settings '" @click="settingType">
       <i class="iconfont icon-shezhi" ></i>
     </div>
-    <setting />
+    <Setting />
+    <!-- <Music /> -->
+    <Search />
+    <!-- <Weather /> -->
   </main>
 </template>
 
 <script>
-import setting from './Setting'
+import Setting from './Setting' // 设置
+import Music from './Music.vue' // 音乐
+import Search from './Search.vue' // 搜索
+import Weather from './Weather.vue' //天气
 import { mapState,mapMutations } from 'vuex'
 export default {
   name: 'Main',
@@ -43,7 +49,10 @@ export default {
       clearInterval(this.setTime);
   },
   components:{
-    setting
+    Setting,
+    Music,
+    Search,
+    Weather
   }
 }
 </script>

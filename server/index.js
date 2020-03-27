@@ -1,5 +1,9 @@
 const express = require('express');
+
 const app = express();
+
+app.use('/uploads', express.static('./uploads'))
+
 const bodyParser = require('body-parser');
 
 app.set('secret', 'ahsg#sj$s%')

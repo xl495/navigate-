@@ -14,6 +14,16 @@ Vue.config.productionTip = false;
 
 Vue.use(ElementUI);
 
+Vue.mixin({
+    methods: {
+        getAuthToken() {
+            return {
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            }
+        }
+    },
+})
+
 new Vue({
     router,
     store,

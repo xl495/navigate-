@@ -85,11 +85,8 @@ export default {
         this.loading = false;
         this.dialog = false;
       }catch (e){
-        console.log(e);
         this.loading = false;
       }
-      
-      
     },
     async remove(v) {
       try{

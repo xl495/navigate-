@@ -27,7 +27,6 @@ module.exports = app => {
 
     router.get('/list', async(req, res) => {
         // 获取列表
-        console.log(req.Model);
         const data = await req.Model.find({}).limit(100);
         res.send({ data: data });
     })
@@ -45,6 +44,20 @@ module.exports = app => {
     const resource = require('../../middleware/resource'); // 根据路由传参寻找对应 models
 
     app.use('/admin/api/rest/:resource', auth(), resource(), router);
+
+    const multer = require('multer')
+
+    const uploads = multer({ dest: __dirname + '/../../uploads' });
+
+
+
+    app.use('/admin/api/upload', auth(), uploads.single('file'), async(req, res) => {
+        const file = req.file;
+        const url = `http://localhost:3000/uploads/${file.filename}`
+        res.send({
+            url
+        })
+    })
 
     //错误处理
     app.use(async(err, req, res, next) => {
